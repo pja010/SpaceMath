@@ -4,9 +4,9 @@
 
 Spacemath solves the lack of a fast and convenient method for inserting mathematical notation in documents. LaTeX, the current most widely used system is cumbersome and difficult to type and remember, while GUIs are too slow and inefficient for longer input. Spacemath is also compatible with screen readers, unlike LaTeX, and has international support (you can type in Chinese!). Spacemath is backwards compatible with both LaTeX and Asciimath. Implemented for David Farmer at the American Institue of Mathematics.
 
-## The philosophy:
+## The SpaceMath philosophy:
 - Don’t force the author to write what they don’t need to
-- If you were to text the mathematical expression to a friend, what would you type?
+- You shouldn't have to consult a manual to figure out how to type a mathematical expression
 - Accessibility and internationalization should be built in from the start
 
 Read more at https://aimath.org/~farmer/spacemath/
