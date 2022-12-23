@@ -1,0 +1,653 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>SpaceMath test interface</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            vertical-align: top
+        }
+        @font-face {
+            font-family: HK Grotesk;
+            src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+            format("opentype");
+        }
+        @font-face {
+            font-family: HK Grotesk;
+            font-weight: bold;
+            src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+            format("opentype");
+        }
+        body {
+            font-family: HK Grotesk, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<p>Try SpaceMath in the interactive renderer below, the Latex output will be out on the right box, and the displayable form will appear below the box. Just like LaTeX, you may use a pair of deliminators (\$...\$,\$\$...\$\$) to indicate if you want some parts to be rendered in displayable math. </p>
+
+<center>
+    <textarea rows="15" cols="60" id=leftTextArea placeholder="Type in this box."></textarea>
+
+    <textarea rows="15" cols="60" id=rightTextArea disabled=true></textarea>
+</center>
+<p id="MathJaxArea"></p>
+
+<p>Below are charts of keyword for some several frequent used symbols in MathJax. </p>
+
+<table style="display: inline-block;">
+    <caption>
+        Operators
+    </caption>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Alternative</th>
+        <th>See</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>+</td>
+        <td>plus</td>
+        <td>\(+\)</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>
+            minus <br />
+            subtracts
+        </td>
+        <td>\(-\)</td>
+    </tr>
+    <tr>
+        <td>*</td>
+        <td>multiply</td>
+        <td>\(\cdot\)</td>
+    </tr>
+    <tr>
+        <td>1/2</td>
+        <td>divide</td>
+        <td>\(\frac{1}{2}\)</td>
+    </tr>
+    <tr>
+        <td>1//2</td>
+        <td>over</td>
+        <td>\(1/2\)</td>
+    </tr>
+    <tr>
+        <td>1^2</td>
+        <td>1 to 2</td>
+        <td>\(1^2\)</td>
+    </tr>
+    <tr>
+        <td>1^^2</td>
+        <td></td>
+        <td>\({}^ 2 1\)</td>
+    </tr>
+    <tr>
+        <td>1__2</td>
+        <td></td>
+        <td>\({}_2 1\)</td>
+    </tr>
+    <tr>
+        <td>|</td>
+        <td></td>
+        <td>\(\mid \)</td>
+    </tr>
+    <tr>
+        <td>+-</td>
+        <td></td>
+        <td>\(\pm\)</td>
+    </tr>
+    <tr>
+        <td>cup</td>
+        <td>union</td>
+        <td>\(\cup\)</td>
+    </tr>
+    <tr>
+        <td>cap</td>
+        <td>intersect</td>
+        <td>\(\cap\)</td>
+    </tr>
+    <tr>
+        <td>in</td>
+        <td></td>
+        <td>\(\in\)</td>
+    </tr>
+    <tr>
+        <td>and</td>
+        <td></td>
+        <td>\(\land\)</td>
+    </tr>
+    <tr>
+        <td>or</td>
+        <td></td>
+        <td>\(\lor\)</td>
+    </tr>
+    <tr>
+        <td>prod</td>
+        <td>by <br/>times <br/> cross</td>
+        <td>\(\\\times\)</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table style="display: inline-block;">
+    <caption>
+        Symbols
+    </caption>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Alternative</th>
+        <th>See</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>alpha</td>
+        <td></td>
+        <td>\(\alpha\)</td>
+    </tr>
+    <tr>
+        <td>beta</td>
+        <td></td>
+        <td>\(\beta\)</td>
+    </tr>
+    <tr>
+        <td>gamma</td>
+        <td></td>
+        <td>\(\gamma\)</td>
+    </tr>
+    <tr>
+        <td>Gamma</td>
+        <td></td>
+        <td>\(\Gamma\)</td>
+    </tr>
+    <tr>
+        <td>delta</td>
+        <td></td>
+        <td>\(\delta\)</td>
+    </tr>
+    <tr>
+        <td>Delta</td>
+        <td></td>
+        <td>\(\Delta\)</td>
+    </tr>
+    <tr>
+        <td>epsilon</td>
+        <td></td>
+        <td>\(\epsilon\)</td>
+    </tr>
+    <tr>
+        <td>varepsilon</td>
+        <td></td>
+        <td>\(\varepsilon\)</td>
+    </tr>
+    <tr>
+        <td>zeta</td>
+        <td></td>
+        <td>\(\zeta\)</td>
+    </tr>
+    <tr>
+        <td>eta</td>
+        <td></td>
+        <td>\(\eta\)</td>
+    </tr>
+    <tr>
+        <td>theta</td>
+        <td></td>
+        <td>\(\theta\)</td>
+    </tr>
+    <tr>
+        <td>Theta</td>
+        <td></td>
+        <td>\(\Theta\)</td>
+    </tr>
+    <tr>
+        <td>vartheta</td>
+        <td></td>
+        <td>\(\vartheta\)</td>
+    </tr>
+    <tr>
+        <td>iota</td>
+        <td></td>
+        <td>\(\iota\)</td>
+    </tr>
+    <tr>
+        <td>kappa</td>
+        <td></td>
+        <td>\(\kappa\)</td>
+    </tr>
+    <tr>
+        <td>lambda</td>
+        <td></td>
+        <td>\(\lambda\)</td>
+    </tr>
+    <tr>
+        <td>Lambda</td>
+        <td></td>
+        <td>\(\Lambda\)</td>
+    </tr>
+    <tr>
+        <td>mu</td>
+        <td></td>
+        <td>\(\mu\)</td>
+    </tr>
+    <tr>
+        <td>nu</td>
+        <td></td>
+        <td>\(\nu\)</td>
+    </tr>
+    <tr>
+        <td>xi</td>
+        <td></td>
+        <td>\(\xi\)</td>
+    </tr>
+    <tr>
+        <td>Xi</td>
+        <td></td>
+        <td>\(\Xi\)</td>
+    </tr>
+    <tr>
+        <td>pi</td>
+        <td></td>
+        <td>\(\pi\)</td>
+    </tr>
+    <tr>
+        <td>Pi</td>
+        <td></td>
+        <td>\(\Pi\)</td>
+    </tr>
+    <tr>
+        <td>rho</td>
+        <td></td>
+        <td>\(\rho\)</td>
+    </tr>
+    <tr>
+        <td>sigma</td>
+        <td></td>
+        <td>\(\sigma\)</td>
+    </tr>
+    <tr>
+        <td>Sigma</td>
+        <td></td>
+        <td>\(\Sigma\)</td>
+    </tr>
+    <tr>
+        <td>tau</td>
+        <td></td>
+        <td>\(\tau\)</td>
+    </tr>
+    <tr>
+        <td>upsilon</td>
+        <td></td>
+        <td>\(\upsilon\)</td>
+    </tr>
+    <tr>
+        <td>phi</td>
+        <td></td>
+        <td>\(\phi\)</td>
+    </tr>
+    <tr>
+        <td>Phi</td>
+        <td></td>
+        <td>\(\Phi\)</td>
+    </tr>
+    <tr>
+        <td>varphi</td>
+        <td></td>
+        <td>\(\varphi\)</td>
+    </tr>
+    <tr>
+        <td>chi</td>
+        <td></td>
+        <td>\(\chi\)</td>
+    </tr>
+    <tr>
+        <td>psi</td>
+        <td></td>
+        <td>\(\psi\)</td>
+    </tr>
+    <tr>
+        <td>Psi</td>
+        <td></td>
+        <td>\(\Psi\)</td>
+    </tr>
+    <tr>
+        <td>omega</td>
+        <td></td>
+        <td>\(\omega\)</td>
+    </tr>
+    <tr>
+        <td>Omega</td>
+        <td></td>
+        <td>\(\Omega\)</td>
+    </tr>
+
+    <tr>
+        <td>del</td>
+        <td>partial</td>
+        <td>\(\partial\)</td>
+    </tr>
+    <tr>
+        <td>O/</td>
+        <td>emptyset</td>
+        <td>\(\emptyset\)</td>
+    </tr>
+    <tr>
+        <td>inf</td>
+        <td>infty <br> infinity <br> oo</td>
+        <td>\(\infty\)</td>
+    </tr>
+    <tr>
+        <td>aleph</td>
+        <td></td>
+        <td>\(\aleph\)</td>
+    </tr>
+    <tr>
+        <td>:.</td>
+        <td>therefore <br> thus <br> hence</td>
+        <td>\(\therefore\)</td>
+    </tr>
+    <tr>
+        <td>:'</td>
+        <td>because <br> since</td>
+        <td>\(\because\)</td>
+    </tr>
+    <tr>
+        <td>ldots</td>
+        <td></td>
+        <td>\(\ldots\)</td>
+    </tr>
+    <tr>
+        <td>cdots</td>
+        <td></td>
+        <td>\(\cdots\)</td>
+    </tr>
+    <tr>
+        <td>vdots</td>
+        <td></td>
+        <td>\(\vdots\)</td>
+    </tr>
+    <tr>
+        <td>ddots</td>
+        <td></td>
+        <td>\(\ddots\)</td>
+    </tr>
+    <tr>
+        <td>frown</td>
+        <td></td>
+        <td>\(\frown\)</td>
+    </tr>
+    <tr>
+        <td>/_\</td>
+        <td>triangle</td>
+        <td>\(\triangle\)</td>
+    </tr>
+    <tr>
+        <td>diamond</td>
+        <td></td>
+        <td>\(\diamond\)</td>
+    </tr>
+
+    <tr>
+        <td>square</td>
+        <td></td>
+        <td>\(\square\)</td>
+    </tr>
+
+    <tr>
+        <td>CC</td>
+        <td></td>
+        <td>\(\mathbb{C}\)</td>
+    </tr>
+
+    <tr>
+        <td>NN</td>
+        <td></td>
+        <td>\(\mathbb{N}\)</td>
+    </tr>
+
+    <tr>
+        <td>QQ</td>
+        <td></td>
+        <td>\(\mathbb{Q}\)</td>
+    </tr>
+
+    <tr>
+        <td>RR</td>
+        <td></td>
+        <td>\(\mathbb{R}\)</td>
+    </tr>
+
+    <tr>
+        <td>ZZ</td>
+        <td></td>
+        <td>\(\mathbb{Z}\)</td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+<table style="display: inline-block;">
+    <caption>
+        Functions
+    </caption>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Alternative</th>
+        <th>See</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>sqrt 2</td>
+        <td></td>
+        <td>\(\sqrt{2}\)</td>
+    </tr>
+    <tr>
+        <td>abs x</td>
+        <td></td>
+        <td>\(|x|\)</td>
+    </tr>
+    <tr>
+        <td>floor x</td>
+        <td></td>
+        <td>\(\lfloor x \rfloor\)</td>
+    </tr>
+    <tr>
+        <td>ceil x</td>
+        <td>ceiling</td>
+        <td>\(\lceil x \rceil\)</td>
+    </tr>
+    <tr>
+        <td>sin x</td>
+        <td></td>
+        <td>\(\sin(x)\)</td>
+    </tr>
+    <tr>
+        <td>cos x</td>
+        <td></td>
+        <td>\(\cos(x)\)</td>
+    </tr>
+    <tr>
+        <td>root 3 x</td>
+        <td></td>
+        <td>\(\sqrt[3]{x}\)</td>
+    </tr>
+    <tr>
+        <td>frac 1 2</td>
+        <td></td>
+        <td>\(\frac{1}{2}\)</td>
+    </tr>
+    <tr>
+        <td>int_1^2 x</td>
+        <td>integral from 1 to 2 x</td>
+        <td>\(\int_{1}^{2} x\)</td>
+    </tr>
+    <tr>
+        <td>oint_1^2 x</td>
+        <td></td>
+        <td>\(\oint_{1}^{2} x\)</td>
+    </tr>
+    <tr>
+        <td>hat x</td>
+        <td></td>
+        <td>\(\hat{x}\)</td>
+    </tr>
+    <tr>
+        <td>overline x</td>
+        <td></td>
+        <td>\(\overline{x}\)</td>
+    </tr>
+    <tr>
+        <td>underline x</td>
+        <td></td>
+        <td>\(\underline x\)</td>
+    </tr>
+    <tr>
+        <td>sum_1^2 x</td>
+        <td>sum from 1 to 2</td>
+        <td>\(\sum{}_1^2 x\)</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table style="display: inline-block;">
+    <caption>
+        Relations
+    </caption>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Alternative</th>
+        <th>See</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>=</td>
+        <td>equal<br /></td>
+        <td>\(=\)</td>
+    </tr>
+    <tr>
+        <td>!=</td>
+        <td>neq,nequal</td>
+        <td>\(\neq\)</td>
+    </tr>
+    <tr>
+        <td><</td>
+        <td></td>
+        <td>&lt;</td>
+    </tr>
+    <tr>
+        <td>></td>
+        <td></td>
+        <td>&gt;</td>
+    </tr>
+    <tr>
+        <td><=</td>
+        <td>leq</td>
+        <td>&le;</td>
+    </tr>
+    <tr>
+        <td>>=</td>
+        <td>geq</td>
+        <td>&ge;</td>
+    </tr>
+    <tr>
+        <td>in</td>
+        <td></td>
+        <td>&in;</td>
+    </tr>
+    <tr>
+        <td>ni</td>
+        <td></td>
+        <td>&ni;</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<table style="display: inline-block;">
+    <caption>
+        Multiline
+    </caption>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Alternative</th>
+        <th>See</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="white-space:pre-wrap; word-wrap:break-word">abs(x) = cases:
+            x if x > 0,
+            -x when x < 0,
+            0 otherwise.</td>
+        <td>abs(x) = cases(x if x > 0,; -x when x < 0,; 0 otherwise.)</td>
+        <td>\(|x| = \begin{cases}x\,&\text{if }\,x > 0,\\
+            - x\,&\text{when }\,x < 0,\\
+            0\,&\text{otherwise}.\end{cases}\)</td>
+    </tr>
+    <tr>
+        <td style="white-space:pre-wrap; word-wrap:break-word"> system:
+            15 x^33 + pi x y = 99
+
+            x <= 2 x + 5y - 7 x^11
+            + 9y^3
+
+            cos(x y^-1) > 1 + 2 + ... + 100
+
+            + hat y_j - conj(x^2)</td>
+        <td></td>
+        <td>\(\begin{align*}15\,x^{33} + \pi\,x\,y = &\,99\\
+            x \leq &\,2\,x + 5y - 7\,x^{11} + 9y^3\\
+            \cos (x\,y^{-1}) > &\,1 + 2 + \cdots + 100\\
+            & \; + \hat{y}_j - \overline{x^2}\end{align*}\)</td>
+    </tr>
+    </tbody>
+    <tr>
+        <td>linearsystem:</td>
+        <td></td>
+        <td>MathJax do not yet support this output :(</td>
+    </tr>
+</table>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">
+</script>
+
+
+<script src="TranslateTable.js"></script>
+<script src="SpaceMath.js"></script>
+<script src="conversion.js"></script>
+<script src="convert.js"></script>
+<script src="M2LConvert.js"></script>
+<script src="M2TreeConvert.js"></script>
+<script src="combineTree2Latex.js"></script>
+<script src="tree.js"></script>
+
+</body>
+</html>
